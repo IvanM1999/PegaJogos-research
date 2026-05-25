@@ -1,0 +1,155 @@
+/* CSS Document */
+a,a:visited {
+	text-decoration:none;
+	color:#333333;
+}
+a:hover ,a:visited:hover {
+	text-decoration:underline;
+}
+body {
+	font-family: Verdana;
+	font-size:11px;
+	background-color: #BFBFFF;
+	margin:0px;
+}
+h1,h2,h3{
+	margin:0px;
+	padding:0px;
+}
+.pic {
+	background-image: url('../images/bf.jpg');
+	background-repeat:no-repeat;
+	padding:0px;
+	padding-top:1px;
+	height:110px;
+	width:140px;
+	float:left;
+	overflow:hidden;
+	text-align:left;
+}
+.img0 {
+	margin:4px;
+	padding:0px;
+	border: #009900 dotted 0px;
+}
+.img1 {
+	margin:2px;
+	padding:3px;
+	border:1px #000000 solid;
+}
+.menu {
+	margin:4px;
+	color:#333333;
+	line-height:22px;
+	font-size:13px;
+}
+.titmenu {
+	color: #FF6600;
+	font-size:17px;
+}
+#logo {
+	margin:3px;
+}
+#q {
+	border: #009900 solid 3px;
+	font-size:16px;
+	font-weight:bold;
+	color:#333333;
+}
+#titbusca {
+	font-size:16px;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin:3px;
+}
+#contanovos {
+	background-image:url("/web/20220121152537im_/http://www.pegajogo.com/img/novos.png");
+	background-repeat:no-repeat;
+	width:105px;
+	height:121px;
+	right:20px;
+	top:5px;
+	position:absolute;
+	text-align:center;
+	font-weight:bold;
+	font-size:32px;
+	padding-top:8px;
+	text-decoration:underline;
+}
+#qsugest {
+	color: #FFFFFF;
+}
+#centralizar {
+	width: 974px;
+	position:absolute;
+	left: 50%;
+	margin-left: -487px;
+	border: #FF6600 thin ;
+	background-color:#FFFFFF;
+	top:145px;
+	background-image:url(/web/20220121152537im_/http://www.pegajogo.com/img/fndMeio.jpg);
+	z-index:10;
+}
+#menu {
+	position:absolute;
+	top:50px;
+	left:15px;
+	height: auto;
+	width: 170px;
+	border: 1px dotted #999999;
+	border-color: #FF6600;
+	background-color:#FFF2EC;
+}
+#dwn {
+	position:absolute;
+	top:465px;
+	left:24px;
+	
+}
+#barra {
+	background-color:#333333;
+	position:relative;
+	height:190px;
+/*	background-image:url(/web/20220121152537im_/http://www.pegajogo.com/img/teste5.jpg); */
+}
+#rodape {
+	background-color:#9999CC;
+	position:relative;
+	height:75px;
+	width:952px;
+	left:11px;
+	top:0px;
+	text-align:center;
+}
+#topo {
+	position:relative;
+	top:0px;
+	left:0px;
+	height: 45px;
+	width:100%;
+	border: 0px;
+	background-image:url(/web/20220121152537im_/http://www.pegajogo.com/img/fndTop.jpg);
+	color:#FFFFFF;
+}
+/*
+     FILE ARCHIVED ON 15:25:37 Jan 21, 2022 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 04:57:37 May 25, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 0.409
+  captures_list: 0.512
+  exclusion.robots: 0.063
+  exclusion.robots.policy: 0.051
+  esindex: 0.009
+  cdx.remote: 14.757
+  LoadShardBlock: 102.108 (3)
+  PetaboxLoader3.datanode: 106.429 (5)
+  PetaboxLoader3.resolve: 85.946 (2)
+  load_resource: 140.58
+  loaddict: 46.566
+*/
