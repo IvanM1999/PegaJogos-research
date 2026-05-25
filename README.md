@@ -1,6 +1,6 @@
 # PegaJogos-research
 ## 🕹️ Pegajogo – História e Preservação
-### 📖 Sobre
+### 📖 Sobre 
 O Pegajogo foi um dos catálogos de jogos mais populares no Brasil durante os anos 2000, distribuído como aplicativo desktop.
 Ele usava Firebird como banco de dados e integrava jogos em Flash, executáveis e conteúdos multimídia.
 Com o fim do site oficial, o Pegajogo desapareceu da internet — mas este repositório busca preservar sua história e documentar como funcionava.
