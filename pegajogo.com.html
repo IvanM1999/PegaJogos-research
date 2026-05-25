@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="iso-8859-1">
+    <title>PegaJogo Local - Emulação Flash</title>
+    <link href="datashared/NewData/saveweb2zip-com-web-archive-org/css/cssMain.css" rel="stylesheet" type="text/css">
+    <script src="datashared/NewData/saveweb2zip-com-web-archive-org/js/ruffle.js"></script>
+    <style>
+        body { background-color: #FFF; font-family: Arial, sans-serif; }
+        #ruffle-overlay {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 10000;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        #player-container { width: 800px; height: 600px; background: #000; border: 2px solid #FF6600; }
+        .close-btn { color: #FFF; cursor: pointer; margin-bottom: 10px; font-weight: bold; }
+        .new-server-tag { color: green; font-weight: bold; font-size: 10px; }
+    </style>
+</head>
+<body>
+    <div id="ruffle-overlay">
+        <div class="close-btn" onclick="closeGame()">[ FECHAR JOGO ]</div>
+        <div id="player-container"></div>
+    </div>
+
+    <div id="barra">
+        <div style="width: 974px; margin: 0 auto; padding: 20px;">
+            <img id="logo" border="0" align="left" src="datashared/NewData/saveweb2zip-com-web-archive-org/images/logoTJ.png">
+            <h1 style="font-size:24px; color:#003399; margin-left: 200px;">PegaJogo: New Server Mode</h1>
+        </div>
+    </div>
+
+    <div id="centralizar">
+        <div id="menu">
+            <h2 class="titmenu">** New Server **</h2>
+            <div class="menu" id="local-games-list">
+                <!-- Lista replicada do diretório de games -->
+                <strong><a href="javascript:void(0)" onclick="loadLocalGame('New Metal Slug.swf')">New Metal Slug</a></strong><br>
+                <strong><a href="javascript:void(0)" onclick="loadLocalGame('Super Mario Flash 2.swf')">Super Mario Flash 2</a></strong><br>
+                <strong><a href="javascript:void(0)" onclick="loadLocalGame('Ben 10 - Perseguicao Selvagem.swf')">Ben 10</a></strong><br>
+                <strong><a href="javascript:void(0)" onclick="loadLocalGame('Super Mario 63.swf')">Super Mario 63</a></strong><br>
+                <strong><a href="javascript:void(0)" onclick="loadLocalGame('Strike Force Heroes 2.swf')">Strike Force Heroes 2</a></strong><br>
+            </div>
+
+            <h2 class="titmenu">Categorias Originais</h2>
+            <div class="menu">
+                <a href="#">Ação e Aventura</a><br>
+                <a href="#">Tiro</a><br>
+                <a href="#">Habilidade</a><br>
+            </div>
+        </div>
+
+        <div id="geral" style="padding: 20px; min-height: 500px;">
+            <h2>Explorador de Arquivos Locais</h2>
+            <p>Os jogos abaixo foram detectados na pasta <code>datashared/Pega jogos/Games/</code>.</p>
+            <hr>
+            <table width="100%" border="0">
+                <tr>
+                    <td>
+                        <img src="datashared/NewData/saveweb2zip-com-web-archive-org/images/3dfc2298ac8a685e4ef749f50c874824.jpg" width="128" height="96" align="left" style="margin-right:10px;">
+                        <h3>New Metal Slug</h3>
+                        <span class="new-server-tag">LOCAL DISK</span><br>
+                        <button onclick="loadLocalGame('New Metal Slug.swf')">JOGAR AGORA</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        
+        function loadLocalGame(swfFile) {
+            const swfPath = "datashared/Pega jogos/Games/" + swfFile;
+            const container = document.getElementById('player-container');
+            const overlay = document.getElementById('ruffle-overlay');
+            
+            container.innerHTML = '';
+            overlay.style.display = 'flex';
+
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            container.appendChild(player);
+            
+            player.load({
+                url: swfPath,
+                parameters: {},
+                autoplay: "on"
+            }).catch(e => {
+                console.error("Falha ao carregar SWF:", e);
+                alert("Erro: Certifique-se de que o arquivo " + swfFile + " está na pasta Games.");
+                closeGame();
+            });
+        }
+
+        function closeGame() {
+            document.getElementById('ruffle-overlay').style.display = 'none';
+            document.getElementById('player-container').innerHTML = '';
+        }
+    </script>
+</body>
+</html>
