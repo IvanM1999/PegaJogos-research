@@ -28,6 +28,7 @@ Assim que o app funcionar offline, faremos ele "acreditar" que o site oficial vo
    - Implementado em **Node.js** no `NewServer/server.js` para responder a requisições de arquivos `.php` legados.
    - Geralmente eram arquivos `.php` ou `.xml` que retornavam a lista de novos jogos.
 3. **Sincronização de Banco:** Descobrir como o app baixava atualizações do `.fdb` e replicar esse comportamento.
+4. **Definição de Estratégia:** [NOVO] Escolher entre manter o binário original ou migrar para o Launcher Moderno (ver `Docs/reconstruction_strategies.md`).
 
 ## Fase 4: Modernização (O Novo PegaJogo)
 Com o funcionamento entendido, o objetivo final é:
