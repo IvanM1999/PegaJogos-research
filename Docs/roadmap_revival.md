@@ -8,17 +8,21 @@ O objetivo aqui é fazer o binário abrir e listar jogos locais sem depender de 
 1. **Ambiente de Desenvolvimento:** 
    - Configure uma Máquina Virtual com **Windows XP SP3** ou **Windows 7 32-bits**.
    - Instale o **Firebird 2.0** (versão de 32 bits).
+   - **[NOVO]** Registrar manualmente as OCXs (`mscomctl.ocx`, `mswinsck.ocx`) via `regsvr32`.
 2. **Restauração do Banco de Dados:**
    - Coloque as DLLs presentes em `bin/udf/` dentro da pasta `UDF` da instalação do Firebird no Windows.
    - Tente conectar ao arquivo `.fdb` usando uma ferramenta como **IBExpert** ou **FlameRobin**.
 3. **Correção de Dependências Flash:**
-   - Como o Flash Player foi descontinuado, é necessário instalar um "Flash Player ActiveX" antigo ou usar um emulador como o **Ruffle** (embora integrar o Ruffle no binário VB6 original seja complexo).
+  - Como o Flash Player foi descontinuado, é necessário instalar um "Flash Player ActiveX" antigo ou usar um emulador como o **Ruffle** (embora integrar o Ruffle no binário VB6 original seja complexo).
+  - **[NOVO]**  - **Estratégia:** Instalar o Adobe Flash Player 32 "Clean" (sem kill-switch) ou versionar a `Flash.ocx` na pasta `bin/`.
+   - Testar o redirecionamento de chamadas ActiveX para o Ruffle Desktop.
 4. **Mock de Arquivos:** 
    - O app espera encontrar os jogos em um caminho específico (ex: `C:\Arquivos de Programas\PegaJogo\Games`). Precisamos descobrir essa estrutura através dos logs ou strings do binário.
 
 ## Fase 2: Engenharia Reversa (Entendendo o Código)
 1. **Extração de Strings:** Use ferramentas como `Strings.exe` ou `BinText` no `PegaJogo.exe` para encontrar URLs e comandos SQL fixos.
 2. **Análise de Tráfego:** Use o **Wireshark** enquanto abre o app para ver para quais IPs ou Domínios ele tenta "discar".
+3. **[CRÍTICO]** Validar se o binário está realmente compactado (Divergência entre `original_app_dissection` e `blueprint`).
 
 ## Fase 3: Operação Online (Reconstrução da Rede)
 Assim que o app funcionar offline, faremos ele "acreditar" que o site oficial voltou.
