@@ -1,0 +1,30 @@
+{
+  "URLs": [
+    "HTTP://www.meusjogosonline.com/_embed/swf.asp?id=15"
+  ],
+  "Hosts": [
+    "PegaJogo.com",
+    "TetoJogos.com",
+    "www.meusjogosonline.com"
+  ],
+  "Scripts": [
+    "//www.meusjogosonline.com/_embed/swf.asp"
+  ],
+  "SwfFiles": [],
+  "DatabaseFiles": [],
+  "OCX": [
+    "Flash10d.ocx",
+    "MSWINSCK.OCX",
+    "MSCOMCTL.OCX"
+  ],
+  "DLL": [
+    "MSVBVM60.DLL",
+    "ieframe.dll",
+    "\\Windows\\system32\\msvbvm60.dll",
+    "comctl32.dll",
+    "shell32.dll",
+    "VBA6.DLL",
+    "advapi32.dll"
+  ],
+  "FirebirdConnection": []
+}

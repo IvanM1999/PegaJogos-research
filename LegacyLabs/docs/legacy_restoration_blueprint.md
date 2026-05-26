@@ -33,7 +33,8 @@ O instalador original será substituído por um script de implantação robusto,
 
 Próximos Experimentos (Laboratório)
 - [x] **Análise de Binário:** Confirmado que o `PegaJogo.exe` é um binário VB6 nativo e não está compactado. (Ver binary_analysis_pega_jogo.md)
-- [ ] **Extração de Strings:** Localizar URLs e caminhos de banco de dados fixos no binário.
+- [x] **Extração de Strings:** Implementado `LegacyLabs/string_triage.py` para reportar URLs, hosts e endpoints embutidos.
+- [x] **Mock de rede local:** Criado `LegacyLabs/legacy_local_server.py` para responder a chamadas legadas de `/jogar` e `.php`/`.asp`.
 - [ ] **Embedded Firebird Proof-of-Concept:** Tentar rodar o binário apontando para um cliente Firebird embutido.
 - [ ] **Mock de XML de Sincronização:** Capturar o formato exato que o app espera para atualizar a lista de jogos via rede.
 
