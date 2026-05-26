@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PegaJogo - O Legado Vive</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/ruffle/ruffle.js"></script>
+    <style>
+        /* Ajuste para garantir que o player ocupe o espaço corretamente */
+        #swf-container ruffle-player {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .active-category { font-weight: bold; color: #cc0000 !important; }
+    </style>
+</head>
+<body>
+    <!-- Barra de busca superior original -->
+    <div id="barra">
+        <br/>
+        <div style="width: 974px; position: relative; margin: 0 auto;">
+            <div style="width: 640px; position: relative; margin: 0 auto;">
+                <form id="frmbusca" onsubmit="return false;">
+                    <a href="index.html">
+                        <img alt="PegaJogo.com" title="PegaJogo.com" id="logo_img" border="0" align="left" src="assets/images/logoTJ.png" style="margin-right: 20px;">
+                    </a>
+                    <br/><br/><br/>
+                    <div id="titbusca">Busque um jogo</div> 
+                    <input type="text" name="q" id="q" size="40" maxlength="100" onkeyup="filterGames()">
+                    <input type="button" value="   Buscar   " onclick="filterGames()">
+                    <br>
+                    <span id="qsugest">Ex.: super mario</span> <br>
+                </form>
+            </div>
+            <!-- Contador de jogos novos clássico -->
+            <div id="contanovos"><a href="#">71</a></div>
+        </div>
+        <br/><br/>
+    </div>
+
+    <div id="centralizar">
+        <div id="topo">
+            <div style="position:relative;left:13px;width:90%">
+                <h1 style="font-size:20px">Download jogos online gratis. Venha baixar jogos gratis.</h1>
+                <span style="color:#BBBBBB;">Baixe todos os <strong>jogos</strong> que encontrar na Internet com o PegaJogo.</span>
+            </div>
+        </div>
+
+        <!-- Menu Lateral Clássico -->
+        <div id="menu">
+            <h2 class="titmenu" style="padding: 5px 10px; font-size: 15px; margin-top: 10px;">Jogos por categoria</h2>
+            <div id="category-list" class="menu"></div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div id="corpo" style="margin-left: 185px; padding: 15px; min-height: 500px;">
+            <!-- Player de Jogo (Oculto por padrão) -->
+            <div id="game-display" style="display:none; text-align: left;">
+                <h2 id="current-game-title" class="titmenu"></h2>
+                <p class="p0">Jogos de <span id="current-game-cat" style="color:#006699; font-weight:bold;"></span></p>
+                <div id="swf-container" style="margin: 20px 0; border: 2px solid #333; width: 800px; height: 500px; background: #000;"></div>
+                <button onclick="closeGame()" style="margin-bottom: 20px; cursor: pointer; padding: 5px 15px;">&laquo; Voltar para a lista</button>
+            </div>
+
+            <!-- Grid de Jogos -->
+            <div id="game-grid">
+                <h2 class="titmenu" style="margin-bottom: 10px;">Todos os Jogos</h2>
+                <div id="grid-container"></div>
+            </div>
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <div id="rodape">
+            <br/>PegaJogo.com - Todos os direitos reservados.<br/>
+            Interface restaurada para o projeto PegaJogos-research &copy; 2026.
+        </div>
+    </div>
+
+    <script>
+        let allGames = [];
+        let rufflePlayer = null;
+
+        function loadGame(file, title, category) {
+            document.getElementById('game-grid').style.display = 'none';
+            document.getElementById('game-display').style.display = 'block';
+            document.getElementById('current-game-title').innerText = title;
+            document.getElementById('current-game-cat').innerText = category;
+            
+            const container = document.getElementById('swf-container');
+            container.innerHTML = '';
+            
+            const ruffle = window.RufflePlayer.newest();
+            rufflePlayer = ruffle.createPlayer();
+            container.appendChild(rufflePlayer);
+            
+            // Configurações avançadas do Ruffle
+            rufflePlayer.load({
+                url: file,
+                backgroundColor: "#000000",
+                allowFullscreen: true
+            });
+        }
+
+        function closeGame() {
+            document.getElementById('game-grid').style.display = 'block';
+            document.getElementById('game-display').style.display = 'none';
+            document.getElementById('swf-container').innerHTML = '';
+        }
+
+        function filterGames() {
+            const query = document.getElementById('q').value.toLowerCase();
+            const filtered = allGames.filter(g => g.title.toLowerCase().includes(query));
+            renderGrid(filtered);
+        }
+
+        function renderGrid(games) {
+            const grid = document.getElementById('grid-container');
+            grid.innerHTML = '';
+            games.forEach(game => {
+                const div = document.createElement('div');
+                div.className = 'pic';
+                div.innerHTML = `
+                    <a href="javascript:void(0)" onclick="loadGame('${game.file}', '${game.title}', '${game.category}')">
+                        <img src="${game.thumb}" class="img1" width="120" height="90" alt="${game.title}">
+                        <div style="font-size:10px; text-align:center; width:120px; overflow:hidden; white-space:nowrap; margin-top: 2px;">${game.title}</div>
+                    </a>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function filterByCategory(cat) {
+            const filtered = allGames.filter(g => g.category === cat);
+            document.getElementById('q').value = ''; // Limpa a busca ao filtrar por categoria
+            document.querySelectorAll('#category-list a').forEach(el => el.classList.remove('active-category'));
+            event.target.classList.add('active-category');
+            renderGrid(filtered);
+            closeGame(); // Garante que volta para a lista ao trocar categoria
+        }
+
+        // Inicialização
+        fetch('assets/data/games.json')
+            .then(res => res.json())
+            .then(data => {
+                allGames = data;
+                const catList = document.getElementById('category-list');
+                renderGrid(data.slice(0, 20)); // Carrega apenas os primeiros para performance inicial
+
+                const categories = [...new Set(data.map(g => g.category))].sort();
+                catList.innerHTML = `<div style="font-weight:bold;"><a href="javascript:void(0)" onclick="renderGrid(allGames)">&raquo; Ver Todos</a></div>`;
+                categories.forEach(cat => {
+                    const item = document.createElement('div');
+                    item.style.fontWeight = "bold";
+                    item.innerHTML = `<a href="javascript:void(0)" onclick="filterByCategory('${cat}')">&raquo; ${cat}</a>`;
+                    catList.appendChild(item);
+                });
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+/* CSS Document */
+a,a:visited {
+	text-decoration:none;
+	color:#333333;
+}
+a:hover ,a:visited:hover {
+	text-decoration:underline;
+}
+body {
+	font-family: Verdana;
+	font-size:11px;
+	background-color: #BFBFFF;
+	margin:0px;
+}
+h1,h2,h3{
+	margin:0px;
+	padding:0px;
+}
+.pic {
+	background-image: url('../images/bf.jpg'); /* Moldura azul/cinza clássica */
+	background-repeat:no-repeat;
+	padding:0px;
+	padding-top:1px;
+	height:115px;
+	width:140px;
+	float:left;
+	overflow:hidden;
+	text-align:left;
+}
+.img0 {
+	margin:4px;
+	padding:0px;
+	border: #009900 dotted 0px;
+}
+.img1 {
+	margin:2px;
+	padding:3px;
+	border:1px #000000 solid;
+}
+.menu {
+	margin:4px;
+	color:#333333;
+	line-height:22px;
+	font-size:13px;
+}
+.titmenu {
+	color: #FF6600;
+	font-size:17px;
+}
+#logo {
+	margin:3px;
+}
+#q {
+	border: #FF6600 solid 2px;
+	font-size:16px;
+	font-weight:bold;
+	color:#333333;
+    padding: 2px;
+}
+#titbusca {
+	font-size:14px;
+	color:#FFFFFF;
+	font-weight:bold;
+	margin-bottom: 5px;
+}
+#contanovos {
+    background-image: url('../images/novos.png');
+	background-repeat:no-repeat;
+	width:105px;
+	height:121px;
+	right:20px;
+	top:5px;
+	position:absolute;
+	text-align:center;
+	font-weight:bold;
+	font-size:32px;
+	padding-top:8px;
+    line-height: 121px;
+}
+#contanovos a {
+    color: #333;
+    text-decoration: underline;
+}
+#qsugest {
+	color: #FFFFFF;
+}
+#centralizar {
+	width: 974px;
+	position:relative;
+	left: 50%;
+	margin-left: -487px;
+	border: 1px solid #FF6600;
+	background-color:#FFFFFF;
+	top: 10px;
+	z-index:10;
+	min-height: 800px;
+}
+#menu {
+	float: left;
+	margin-left: 15px;
+	margin-top: 15px;
+	height: auto;
+	width: 170px;
+	border: 1px dotted #FF6600;
+	background-color:#FFF2EC;
+    padding-bottom: 10px;
+}
+#dwn {
+	margin: 10px 15px;
+}
+#barra {
+	background-color: #333333;
+	position:relative;
+	min-height: 190px;
+	width: 100%;
+}
+#rodape {
+	background-color:#9999CC;
+	position: absolute;
+	bottom: 0;
+	height:75px;
+	width: 100%;
+	text-align:center;
+}
+#topo {
+	position:relative;
+	top:0px;
+	left:0px;
+	height: 45px;
+	width:100%;
+	border: 0px;
+	background-color: #006699;
+	color:#FFFFFF;
+}
+/*
+     FILE ARCHIVED ON 01:03:32 Jan 27, 2012 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 01:32:48 May 26, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+*/
+/*
+playback timings (ms):
+  capture_cache.get: 32.89
+  load_resource: 114.786
+  PetaboxLoader3.resolve: 69.692
+  PetaboxLoader3.datanode: 44.474
+*/

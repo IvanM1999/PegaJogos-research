@@ -1,0 +1,9 @@
+services:
+  - type: static
+    name: pegajogos-restoration
+    env: static
+    buildCommand: "" 
+    publishPath: NewServer
+    headers:
+      - key: Access-Control-Allow-Origin
+        value: "*"

@@ -24,8 +24,8 @@ O objetivo aqui é fazer o binário abrir e listar jogos locais sem depender de 
 Assim que o app funcionar offline, faremos ele "acreditar" que o site oficial voltou.
 
 1. **Redirecionamento de DNS:** Edite o arquivo `hosts` do Windows para apontar o domínio antigo do PegaJogo para o seu `localhost` (127.0.0.1).
-2. **Criação do API Mock:** 
-   - Desenvolva um servidor simples em **Node.js** ou **Python** que responda às requisições que o app faz. 
+2. **Criação do API Mock:** [CONCLUÍDO]
+   - Implementado em **Node.js** no `NewServer/server.js` para responder a requisições de arquivos `.php` legados.
    - Geralmente eram arquivos `.php` ou `.xml` que retornavam a lista de novos jogos.
 3. **Sincronização de Banco:** Descobrir como o app baixava atualizações do `.fdb` e replicar esse comportamento.
 
